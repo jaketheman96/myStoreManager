@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "26cbf181-3a6a-4479-b2ef-59a6cb8f6eec",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products/999",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-13T23:03:41.942Z",
+    "modified": "2022-09-13T23:57:34.359Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
