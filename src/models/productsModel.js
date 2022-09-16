@@ -12,4 +12,15 @@ const getProductsById = async (id) => {
   return result;
  };
 
-module.exports = { getProducts, getProductsById };
+ // erro esta aqui, verificar sintaxe da query ao se conectar com o banco de dados.
+const registerProduct = async (name) => {
+  const query = 'INSERT INTO StoreManager.products (name) VALUES(?)';
+  const [result] = await connection.execute(query, [name]);
+  return { id: result.insertId, name };
+ };
+
+module.exports = {
+  getProducts,
+  getProductsById,
+  registerProduct,
+};

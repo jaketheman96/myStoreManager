@@ -10,4 +10,13 @@ const getProductsById = async (id) => {
   return responseFromModel;
  };
 
-module.exports = { getProducts, getProductsById };
+const registerProduct = async (name) => {
+  const responseFromModel = await productsModel.registerProduct(name);
+  return responseFromModel;
+ };
+
+module.exports = {
+  getProducts,
+  getProductsById,
+  registerProduct,
+};
