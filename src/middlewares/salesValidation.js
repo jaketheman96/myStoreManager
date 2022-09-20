@@ -1,5 +1,6 @@
 const productsModel = require('../models/productsModel');
 const { salesSchema } = require('./salesSchema');
+const { getSalesById } = require('../models/salesModel');
 
 const salesValidation = async (req, res, next) => {
   const validation = salesSchema.validate(req.body);
@@ -19,4 +20,15 @@ const notFoundValidation = async (req, res, next) => {
   return next();
 };
 
-module.exports = { salesValidation, notFoundValidation };
+const getSalesValidation = async (req, res, next) => { 
+  const { id } = req.params;
+  const response = await getSalesById(id);
+  if (!response.length) return res.status(404).json({ message: 'Sale not found' });
+  return next();
+};
+
+module.exports = {
+  salesValidation,
+  notFoundValidation,
+  getSalesValidation,
+};
