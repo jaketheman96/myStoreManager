@@ -16,10 +16,24 @@ const registerProduct = async (name) => {
   const query = 'INSERT INTO StoreManager.products (name) VALUES(?)';
   const [result] = await connection.execute(query, [name]);
   return { id: result.insertId, name };
- };
+};
+ 
+const updateProduct = async (info, id) => { 
+  Promise.all(await connection.execute(
+    `UPDATE StoreManager.products
+     SET name = ?
+     WHERE id = ?`,
+     [info, id],
+  ));
+  return {
+    id,
+    name: info,
+  };
+};
 
 module.exports = {
   getProducts,
   getProductsById,
   registerProduct,
+  updateProduct,
 };

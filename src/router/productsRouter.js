@@ -1,6 +1,9 @@
 const express = require('express');
 const productsController = require('../controllers/productsController');
-const { validateProductName } = require('../middlewares/productNameValidation');
+const {
+  validateProductName,
+  productIdValidation,
+} = require('../middlewares/productValidation');
 
 const router = express.Router();
 
@@ -9,5 +12,7 @@ router.get('/', productsController.getProducts);
 router.get('/:id', productsController.getProductsById);
 
 router.post('/', validateProductName, productsController.registerProduct);
+
+router.put('/:id', validateProductName, productIdValidation, productsController.updateProduct);
 
 module.exports = router;

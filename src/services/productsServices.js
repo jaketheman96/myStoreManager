@@ -13,10 +13,16 @@ const getProductsById = async (id) => {
 const registerProduct = async (name) => {
   const responseFromModel = await productsModel.registerProduct(name);
   return responseFromModel;
- };
+};
+ 
+const updateProduct = async (info, id) => { 
+  const response = await productsModel.updateProduct(info, id);
+  return response;
+};
 
 module.exports = {
   getProducts,
   getProductsById,
   registerProduct,
+  updateProduct,
 };
