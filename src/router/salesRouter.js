@@ -3,15 +3,17 @@ const salesController = require('../controllers/salesController');
 const {
   salesValidation,
   notFoundValidation,
-  getSalesValidation,
+  salesIdValidation,
 } = require('../middlewares/salesValidation');
 
 const router = express.Router();
 
 router.post('/', salesValidation, notFoundValidation, salesController.registerSales);
 
-router.get('/:id', getSalesValidation, salesController.getSalesById);
+router.get('/:id', salesIdValidation, salesController.getSalesById);
 
 router.get('/', salesController.getAllSales);
+
+router.delete('/:id', salesIdValidation, salesController.deleteSale);
 
 module.exports = router;

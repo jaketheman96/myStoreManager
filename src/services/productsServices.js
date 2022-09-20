@@ -22,7 +22,6 @@ const updateProduct = async (info, id) => {
 
 const deleteProduct = async (id) => {
   await productsModel.deleteProduct(id);
-  return null;
  };
 
 module.exports = {

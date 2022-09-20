@@ -20,7 +20,7 @@ const notFoundValidation = async (req, res, next) => {
   return next();
 };
 
-const getSalesValidation = async (req, res, next) => { 
+const salesIdValidation = async (req, res, next) => { 
   const { id } = req.params;
   const response = await getSalesById(id);
   if (!response.length) return res.status(404).json({ message: 'Sale not found' });
@@ -30,5 +30,5 @@ const getSalesValidation = async (req, res, next) => {
 module.exports = {
   salesValidation,
   notFoundValidation,
-  getSalesValidation,
+  salesIdValidation,
 };
