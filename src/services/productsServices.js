@@ -24,10 +24,18 @@ const deleteProduct = async (id) => {
   await productsModel.deleteProduct(id);
  };
 
+const getByName = async (q) => { 
+  const response = await productsModel.getByName(q);
+  if (response) return response;
+  const allProducts = await productsModel.getProducts();
+  return allProducts;
+ };
+
 module.exports = {
   getProducts,
   getProductsById,
   registerProduct,
   updateProduct,
   deleteProduct,
+  getByName,
 };
