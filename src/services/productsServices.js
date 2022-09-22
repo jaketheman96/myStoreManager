@@ -26,7 +26,7 @@ const deleteProduct = async (id) => {
 
 const getByName = async (q) => { 
   const response = await productsModel.getByName(q);
-  if (response) return response;
+  if (response.length) return response;
   const allProducts = await productsModel.getProducts();
   return allProducts;
  };
