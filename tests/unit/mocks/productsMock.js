@@ -13,4 +13,13 @@ const products = [
   }
 ]
 
-module.exports = { products };
+const productToInsert = {
+  "id": 4,
+  "name": "ProdutoX"
+};
+
+const productToUpdate = {
+  "name": "Martelo do Batman"
+}
+
+module.exports = { products, productToInsert, productToUpdate };
